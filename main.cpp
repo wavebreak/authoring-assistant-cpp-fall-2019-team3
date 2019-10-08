@@ -76,22 +76,29 @@ char printMenu(string usrStr) {
             break;
         case 'q':
 
-            break;
-        default;
+            exit (0);
+        default:
         cout<<"\n\n Invalid Choice... Try Again\n\n";
         break;
     }
-    return ch;
+
+
 }
 
 int main() {
     string userString;
+    char option;
 
     cout << "Enter a string: ";
     getline(cin, userString);
     cout << "You entered: " << userString << endl;
-    printMenu(userString);
 
-//test
-   return 0;
-}
+    do {
+        printMenu(userString);
+    } while (option != 'q');
+
+        printMenu(userString);
+
+        return 0;
+    }
+

@@ -21,6 +21,27 @@ int GetNumOfNonWSCharacters(const string text)
 }
 
 
+int GetNumOfWords(string);
+int GetNumOfWords(const string text)
+
+{
+
+    int words = 0, i;
+    int len = text.size();
+    for (i = 0; i<len;){
+        if (isspace(text[i])){
+            while (isspace(text[i]))
+                i++;
+            words++;
+        }
+        else{
+            i++;
+        }
+    }
+    words = words + 1;
+    return words;
+}
+
 char printMenu(string usrStr) {
     char menuOp;
     string userStr = usrStr;
@@ -56,7 +77,11 @@ char printMenu(string usrStr) {
         case 'q':
 
             break;
+        default;
+        cout<<"\n\n Invalid Choice... Try Again\n\n";
+        break;
     }
+    return ch;
 }
 
 int main() {

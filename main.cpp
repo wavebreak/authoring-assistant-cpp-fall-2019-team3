@@ -13,7 +13,7 @@ int GetNumOfNonWSCharacters(const string text)
 {
     int cnt=0,i;
     int len = text.size();
-    for(i = 0; i,len; i++)
+    for(i = 0; i < len; i++)
     {
         if (!isspace(text[i]))
             cnt++;
@@ -23,6 +23,8 @@ int GetNumOfNonWSCharacters(const string text)
 
 char printMenu(string usrStr) {
     char menuOp;
+    string userStr = usrStr;
+
 
     cout << "\nMENU" << endl;
     cout << "c - Number of non-whitespace characters" << endl;
@@ -37,7 +39,7 @@ char printMenu(string usrStr) {
 
     switch(menuOp) {
         case 'c':
-
+            cout << "Number of non-whitespace characters: " << GetNumOfNonWSCharacters(userStr) << endl;
             break;
         case 'w':
 

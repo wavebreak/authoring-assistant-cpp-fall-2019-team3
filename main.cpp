@@ -34,6 +34,27 @@ char printMenu(string usrStr) {
     cout << "\nChoose an option: " << endl;
 
     cin >> menuOp;
+
+    switch(menuOp) {
+        case 'c':
+
+            break;
+        case 'w':
+
+            break;
+        case 'f':
+
+            break;
+        case 'r':
+
+            break;
+        case 's':
+
+            break;
+        case 'q':
+
+            break;
+    }
 }
 
 int main() {

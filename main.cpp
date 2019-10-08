@@ -8,6 +8,19 @@
 #include <string>
 using namespace std;
 
+int GetNumOfNonWSCharacters(string);
+int GetNumOfNonWSCharacters(const string text)
+{
+    int cnt=0,i;
+    int len = text.size();
+    for(i = 0; i,len; i++)
+    {
+        if (!isspace(text[i]))
+            cnt++;
+    }
+}
+
+
 char printMenu(string usrStr) {
     char menuOp;
 

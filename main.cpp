@@ -10,7 +10,12 @@ using namespace std;
 
 int main() {
 
-   /* Type your code here. */
+    string userString;
+
+    cout << "Enter a sample text:" << endl;
+    getline(cin, userString);
+    cout << "\nYou entered: "<< userString << endl;
+
 
    return 0;
 }

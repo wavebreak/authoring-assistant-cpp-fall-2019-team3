@@ -63,7 +63,7 @@ char printMenu(string usrStr) {
             cout << "Number of non-whitespace characters: " << GetNumOfNonWSCharacters(userStr) << endl;
             break;
         case 'w':
-
+            cout << "\n\n Number of words: " << GetNumOfWords(userStr)<<"\n\n";
             break;
         case 'f':
 

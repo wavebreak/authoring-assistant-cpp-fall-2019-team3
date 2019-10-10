@@ -42,9 +42,64 @@ int GetNumOfWords(const string text)
     return words;
 }
 
+int FindText(string, string);
+int FindText(string text, string phrase)
+{
+
+    int count = 0;
+    if (phrase.size() == 0)
+        return 0;
+
+
+    for (size_t offset = text.find(phrase); offset != string::npos; offset = text.find(phrase, offset + phrase.size())){
+        ++count;
+    }
+    return count;
+}
+
+
+void ReplaceExclamation(string&);
+void ReplaceExclamation(string& text)
+
+{
+
+    string newText = text;
+    int i, len = text.size();
+    for (i = 0; i<len; i++){
+        if (text[i] == '!')
+            newText[i] = '.';
+    }
+    text = newText;
+}
+
+void ShortenSpace(string&);
+void ShortenSpace(string& text)
+
+{
+
+    char *newText;
+    int i, len = text.size(), k = 0;
+    newText = new char[len + 1];
+
+    for (i = 0; i<len; k++){
+        newText[k] = text[i];
+        if (isspace(text[i])){
+            while (isspace(text[i]))
+                i++;
+        }
+        else{
+            i++;
+        }
+    }
+    newText[k] = '\0';
+    text = newText;
+}
+
+
 char printMenu(string usrStr) {
     char menuOp;
     string userStr = usrStr;
+    string phraseToFind;
 
 
     cout << "\nMENU" << endl;
@@ -59,23 +114,25 @@ char printMenu(string usrStr) {
     cin >> menuOp;
 
     switch(menuOp) {
-        case 'c':
+        case 'c':case 'C':
             cout << "Number of non-whitespace characters: " << GetNumOfNonWSCharacters(userStr) << endl;
             break;
-        case 'w':
+        case 'w': case 'W':
             cout << "\n\n Number of words: " << GetNumOfWords(userStr)<<"\n\n";
             break;
-        case 'f':
-
+        case 'f': case'F':
+            cin.ignore();
+                cout << "\n\n Enter a word/Phrase to find: ";
+            getline(cin, phraseToFind);
+                cout << "\n\n \"" << phraseToFind << "\" instances: " << FindText(usrStr, phraseToFind) << " \n\n";
             break;
-        case 'r':
-
+        case 'r': case'R':
+            ReplaceExclamation(userStr); cout << "\n\n Edited text: " << usrStr << "\n\n";
             break;
-        case 's':
-
+        case 's': case 'S':
+            ShortenSpace(usrStr); cout << "\n\n Edited text: " << usrStr << "\n\n";
             break;
-        case 'q':
-
+        case 'q': case 'Q':
             exit (0);
         default:
         cout<<"\n\n Invalid Choice... Try Again\n\n";

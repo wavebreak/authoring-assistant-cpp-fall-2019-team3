@@ -127,7 +127,7 @@ char printMenu(string usrStr) {
                 cout << "\n\n \"" << phraseToFind << "\" instances: " << FindText(usrStr, phraseToFind) << " \n\n";
             break;
         case 'r': case'R':
-            ReplaceExclamation(userStr); cout << "\n\n Edited text: " << usrStr << "\n\n";
+            ReplaceExclamation(usrStr); cout << "\n\n Edited text: " << usrStr << "\n\n";
             break;
         case 's': case 'S':
             ShortenSpace(usrStr); cout << "\n\n Edited text: " << usrStr << "\n\n";
